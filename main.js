@@ -1,7 +1,9 @@
 song1="";
 volume=1;
+noOfTimes=0;
 function preload(){
     song1=loadSound("Song.mp3");
+    song2=loadSound("Music.mp3");
 }
 function setup(){
     video=createCapture(VIDEO);
@@ -22,6 +24,15 @@ function Results(results){
     }
 }
 function Play(){
-    song1.play();
-    song1.setVolume(volume);
+    noOfTimes++
+    if(noOfTimes%2==0){
+        song2.stop();
+        song1.play();
+        song1.setVolume(volume);
+    }
+    else{
+        song1.stop();
+        song2.play();
+        song2.setVolume(volume);
+    }
 }
